@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Accomplishments</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .scroll-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(24,90,157,0.18);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .scroll-to-top.show {
+            display: flex;
+        }
+        .footer .social-icons {
+            margin-top: 10px;
+        }
+        .footer .social-icons a {
+            color: #43cea2;
+            margin: 0 8px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer .social-icons a:hover {
+            color: #b2dfdb;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 32px;
+            right: 32px;
+            background: #232a36;
+            color: #43cea2;
+            border: none;
+            border-radius: 24px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(24,90,157,0.13);
+            z-index: 1100;
+            transition: background 0.2s, color 0.2s;
+        }
+        .theme-toggle.light {
+            background: #e0e6ed;
+            color: #185a9d;
+        }
+        body.light {
+            background: #e0e6ed;
+            color: #181c24;
+        }
+        body.light .hero,
+        body.light .projects,
+        body.light .skills,
+        body.light .contact,
+        body.light .whoami {
+            background: #fff;
+            color: #181c24;
+            box-shadow: 0 2px 12px rgba(24,90,157,0.06);
+        }
+        body.light .footer {
+            background: #f5f7fa;
+            color: #185a9d;
+        }
+        body.light .footer .social-icons a {
+            color: #185a9d;
+        }
+        body.light .footer .social-icons a:hover {
+            color: #43cea2;
+        }
+        body.light .accomplishments li,
+        body.light .project-card,
+        body.light .skills-list li {
+            background: #f5f7fa;
+            color: #185a9d;
+        }
+        body.light .contact-form input,
+        body.light .contact-form textarea {
+            background: #fff;
+            color: #181c24;
+        }
+        body.light .contact-form button {
+            background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+            color: #fff;
+        }
+        body.light .contact-form button:hover {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Hüseyn</h1>
+            <p class="subtitle">Welcome to my personal website!</p>
+            <p class="about-me">I am passionate about learning, technology, and self-improvement. Here are some of the things I have accomplished:</p>
+            <ul class="accomplishments">
+                <li>Created several personal projects and websites</li>
+                <li>Learned HTML, CSS, and JavaScript independently</li>
+                <li>Consistently improved my coding and problem-solving skills</li>
+                <li>Helped friends and classmates with their programming projects</li>
+                <li>Explored new technologies and stayed curious</li>
+            </ul>
+        </div>
+        <div class="whoami">
+            <h2>Who am I?</h2>
+            <p>I am a curious and motivated individual who loves to learn new things and challenge myself. My interests include web development, technology, and helping others grow. I enjoy working on creative projects, exploring new ideas, and sharing knowledge with my peers. My goal is to continuously improve and make a positive impact wherever I go.</p>
+        </div>
+    </header>
+    <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" title="Back to top">↑</button>
+    <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌙 Night Mode</button>
+    <main>
+        <section class="projects fade-in">
+            <h2>Featured Projects</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <h3>Quiz Website</h3>
+                    <p>A fun and interactive quiz platform with multiple categories and difficulty levels. Built with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Personal Portfolio</h3>
+                    <p>A modern portfolio site to showcase my skills, projects, and contact information. Responsive and visually appealing.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Study Helper App</h3>
+                    <p>A productivity tool to help students organize their study sessions, set goals, and track progress.</p>
+                </div>
+            </div>
+        </section>
+        <section class="skills fade-in">
+            <h2>My Skills</h2>
+            <ul class="skills-list">
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Responsive Web Design</li>
+                <li>UI/UX Principles</li>
+                <li>Teamwork & Communication</li>
+                <li>Continuous Learning</li>
+            </ul>
+        </section>
+        <section class="contact fade-in">
+            <h2>Contact Me</h2>
+            <form class="contact-form" autocomplete="off" onsubmit="event.preventDefault(); alert('Thank you for your message!'); this.reset();">
+                <input type="text" placeholder="Hüseyn" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Made by Hüseyn &copy; 2025</p>
+        <div class="social-icons">
+            <a href="https://github.com/" target="_blank" title="GitHub"><span>🐙</span></a>
+            <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><span>💼</span></a>
+            <a href="mailto:your@email.com" title="Email"><span>✉️</span></a>
+        </div>
+    </footer>
+    <script>
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollToTopBtn');
+            if (window.scrollY > 200) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        // Fade-in on scroll
+        function revealOnScroll() {
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+        // Theme toggle
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeToggle');
+            body.classList.toggle('light');
+            if (body.classList.contains('light')) {
+                btn.textContent = '🌞 Light Mode';
+                btn.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                btn.textContent = '🌙 Night Mode';
+                btn.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        // On load, set theme from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = localStorage.getItem('theme');
+            const body = document.body;
+            const btn = document.getElementById('themeToggle');
+            if (theme === 'light') {
+                body.classList.add('light');
+                btn.textContent = '🌞 Light Mode';
+                btn.classList.add('light');
+            }
+        });
+    </script>
+</body>
+</html>
